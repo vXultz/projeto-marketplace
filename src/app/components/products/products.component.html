@@ -1,13 +1,7 @@
 <div class="product-section">
   <h2>{{ sectionTitle }}</h2>
   <div class="product-cards">
-    <div class="card" *ngFor="let product of products" (click)="viewProductDetails(product)">
-      <img [src]="product.image" class="card-img-top" alt="{{ product.name }}">
-      <div class="card-body">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">{{ product.description }}</p>
-        <p class="card-price">{{ product.price | currency }}</p>
-      </div>
-    </div>
+    <app-product-card *ngFor="let product of products" [product]="product"
+      (click)="viewProductDetails(product)"></app-product-card>
   </div>
 </div>
