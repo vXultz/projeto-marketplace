@@ -1,1 +1,18 @@
-<p>header works!</p>
+<header class="header">
+  <div class="logo">
+    <img src="path-to-your-logo.png" alt="Logo" />
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar produtos" #searchInput />
+    <button (click)="searchProducts(searchInput.value)">Pesquisar</button>
+  </div>
+  <div class="header-links">
+    <a href="#">Crie sua conta</a>
+    <a href="#">Entrar</a>
+    <div class="cart" (click)="goToCart()">
+      <span>Carrinho</span>
+      <span class="cart-icon">🛒</span>
+      <span *ngIf="cartItemCount > 0" class="cart-count">{{ cartItemCount }}</span>
+    </div>
+  </div>
+</header>
