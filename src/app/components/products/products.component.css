@@ -1,0 +1,17 @@
+.product-section {
+  margin: 20px 0;
+}
+
+.product-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
