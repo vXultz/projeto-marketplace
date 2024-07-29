@@ -1,7 +1,24 @@
-<app-header></app-header>
-<app-banner></app-banner>
-<div class="product-sections">
-  <app-products sectionTitle="Mais vendidos da semana"></app-products>
-  <app-products sectionTitle="Ofertas do dia"></app-products>
+<div class="carousel">
 </div>
-<app-footer></app-footer>
+
+<div class="section">
+  <h2>Mais Vendidos da Semana</h2>
+  <div class="products">
+    <div class="product-card" *ngFor="let product of bestSellingProducts">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency: 'BRL' }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Ofertas do Dia</h2>
+  <div class="products">
+    <div class="product-card" *ngFor="let product of dailyDeals">
+      <img [src]="product.image" alt="{{ product.name }}">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price | currency: 'BRL' }}</p>
+    </div>
+  </div>
+</div>

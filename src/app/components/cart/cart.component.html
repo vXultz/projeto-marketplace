@@ -1,1 +1,31 @@
-<p>cart works!</p>
+<div class="cart" *ngIf="cartItems.length > 0; else emptyCart">
+  <div class="cart-items">
+    <h2>Seu Carrinho</h2>
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <img [src]="item.image" alt="{{ item.name }}" class="cart-item-image">
+      <div class="cart-item-details">
+        <h3>{{ item.name }}</h3>
+        <div class="cart-item-quantity">
+          <button (click)="decreaseQuantity(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item)">+</button>
+        </div>
+        <p>Preço Total: {{ getTotalItemPrice(item) }}</p>
+        <button (click)="removeItem(item)">Excluir</button>
+      </div>
+    </div>
+  </div>
+  <div class="cart-summary">
+    <h2>Resumo da Compra</h2>
+    <p>Valor dos Produtos: {{ getFormattedTotalCartPrice() }}</p>
+    <p>Valor do Frete: {{ getFormattedShippingCost() }}</p>
+    <h3>Valor Total: {{ getFormattedTotalPurchasePrice() }}</h3>
+    <button>Comprar</button>
+  </div>
+</div>
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <p>Seu carrinho está vazio.</p>
+    <button (click)="startSearch()">Iniciar Busca</button>
+  </div>
+</ng-template>

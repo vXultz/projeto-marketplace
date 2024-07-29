@@ -1,1 +1,19 @@
-<p>product-details works!</p>
+<div *ngIf="product" class="product-details">
+  <div class="product-images">
+    <img *ngFor="let image of product.images" [src]="image" alt="{{ product.name }}">
+  </div>
+  <div class="product-info">
+    <h2>{{ product.name }}</h2>
+    <p class="product-description">{{ product.description }}</p>
+    <p class="product-price">{{ product.price | currency: 'BRL' }}</p>
+    <button (click)="addToCart()">Adicionar ao Carrinho</button>
+  </div>
+  <div class="product-comments">
+    <h3>Comentários dos Clientes</h3>
+    <ul>
+      <li *ngFor="let comment of comments">
+        <p>{{ comment }}</p>
+      </li>
+    </ul>
+  </div>
+</div>
